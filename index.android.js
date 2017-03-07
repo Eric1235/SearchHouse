@@ -13,6 +13,8 @@ import {
   View
 } from 'react-native';
 
+
+//遗留下动画切换卡顿的问题，想办法去解决
 class SearchHouse extends Component {
 
   configureScene(route, routeStack) {
@@ -31,11 +33,12 @@ class SearchHouse extends Component {
           index: 0,
           component: SearchPage
         }}
-        configureScene={this.configureScene}
+        // configureScene={this.configureScene}
         navigationBar={
           <Navigator.NavigationBar
             style={styles.navContainer}
-            routeMapper={NavigationBarRouteMapper}/>
+            routeMapper={NavigationBarRouteMapper}
+            />
         }
         renderScene={(route, navigator)=>{
           let Com = route.component;
@@ -99,6 +102,9 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   navContainer: {
+    flex: 1,
+    // flexDirection: 'row',
+    // width: 360,
     backgroundColor: '#48BBEC',
     paddingTop: 12,
     paddingBottom: 10,
@@ -121,24 +127,29 @@ var styles = StyleSheet.create({
 // 左面导航按钮
 leftNavButtonText: {
   color: '#ffffff',
+  // flex: 1,
   fontSize: 18,
   marginLeft: 13
 },
 // 右面导航按钮
 rightNavButtonText: {
   color: '#ffffff',
+  // flex: 1,
   fontSize: 18,
   marginRight: 13
 },
 // 标题
 title: {
   width: 200,//不指定大小就不行，我纳闷了
+
   fontSize: 18,
   color: '#fff',
   justifyContent: 'center',
+  alignItems: 'center',
+  alignSelf: 'stretch',
   textAlign: 'center',
   fontWeight: 'bold',
-  flex: 1
+  flex: 4
 },
 });
 

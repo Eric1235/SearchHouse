@@ -25,7 +25,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    marginTop: 60,
+    marginTop: 10,
   },
   separator: {
   height: 1,
@@ -43,7 +43,7 @@ var styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
     padding: 10,
-  }
+  },
 })
 
 class SearchResults extends Component {
@@ -90,6 +90,15 @@ class SearchResults extends Component {
     )
   }
 
+  renderSeparator(sectionID, rowID, adjacentRowHighlighted){
+    return (
+      <View
+        key={`{sectionID} - {rowID}`}
+        style={styles.separator}>
+      </View>
+    )
+  }
+
   render() {
     return (
       <ListView
@@ -97,6 +106,7 @@ class SearchResults extends Component {
         style={styles.container}
         //不写这一句，会出现黄屏警告
         enableEmptySections={true}
+        // renderSeparator={this.renderSeparator}
         renderRow={this.renderRow.bind(this)}/>
     );
   }
